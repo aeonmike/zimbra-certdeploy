@@ -22,7 +22,7 @@ is_centos() {
 if is_ubuntu; then
     { cat /etc/lsb-release | grep "DISTRIB_RELEASE" | cut -d '=' -f 2
       sudo apt install certbot python3-certbot-nginx -y
-      read -p 'Enter domain: ' domain
+      read -p 'Enter webmail domain: ' domain
       echo "Setting SSL Cert for $domain"
       export EMAIL="mike.cabalin@gmail.com"
       sudo certbot certonly --standalone \
@@ -57,7 +57,7 @@ if is_ubuntu; then
      { cat /etc/redhat-release | grep -oE '[0-9]+\.[0-9]+' | head -1
        sudo yum -y install epel-release
        sudo yum -y install certbot
-       read -p 'Enter domain: ' domain
+       read -p 'Enter webmail domain: ' domain
       echo "Setting SSL Cert for $domain"
       export EMAIL="mike.cabalin@gmail.com"
       sudo certbot certonly --standalone \
